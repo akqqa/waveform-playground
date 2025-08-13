@@ -5,9 +5,11 @@ Grid::Grid(int windowWidth, int windowHeight, int cellSize)
 {
     cols = windowWidth/cellSize;
     rows = windowHeight/cellSize;
+
+    cellData.resize(cols, -1);
 }
 
-void Grid::drawGrid(sf::RenderWindow& window) {
+void Grid::drawGrid(sf::RenderWindow& window, sf::RectangleShape& cell) {
     for (int x = 1; x < cols; x++) {
         // Draw columns
         sf::RectangleShape gridLine(sf::Vector2f(1, (float) windowHeight));
@@ -31,4 +33,19 @@ void Grid::drawGrid(sf::RenderWindow& window) {
         }
         window.draw(gridLine);
     }
+
+    // Draw celldata
+    for (int i = 0; i < cols; i++) {
+        if (cellData[i] == -1) {continue;}
+        cell.setPosition({i*cellSize, cellData[i]*cellSize});
+        cell.setFillColor(sf::Color::Black);
+        window.draw(cell);
+    }
+
+}
+
+void Grid::setCell(int col, int row) {
+    if (col < 0 || col >= cols || row < 0 || row >= rows) return;
+
+    cellData[col] = row;
 }
