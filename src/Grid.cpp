@@ -12,7 +12,11 @@ void Grid::drawGrid(sf::RenderWindow& window) {
         // Draw columns
         sf::RectangleShape gridLine(sf::Vector2f(1, (float) windowHeight));
         gridLine.setPosition({cellSize*x,0});
-        gridLine.setFillColor(sf::Color::Black);
+        if (x == cols / 2) {
+            gridLine.setFillColor(sf::Color::Red);
+        } else {
+            gridLine.setFillColor(sf::Color::Black);
+        }
         window.draw(gridLine);
     }
 

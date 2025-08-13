@@ -12,6 +12,6 @@ FetchContent_Declare(SFML
     SYSTEM)
 FetchContent_MakeAvailable(SFML)
 
-add_executable(waveform_playground src/main.cpp src/Grid.cpp)
+add_executable(waveform_playground src/main.cpp src/Grid.cpp src/MouseHandler.cpp)
 target_compile_features(waveform_playground PRIVATE cxx_std_17)
 target_link_libraries(waveform_playground PRIVATE SFML::Graphics)
