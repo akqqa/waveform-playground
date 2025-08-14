@@ -10,9 +10,9 @@
 
 // TODO: Add array of values to grid, update the array based on mouse pos and clicked
 
-const float multiplier = 2;
-const int windowWidth = 960*multiplier;
-const int windowHeight = 540*multiplier;
+const float multiplier = 1;
+const int windowWidth = 960*2*multiplier;
+const int windowHeight = 540*2*multiplier;
 const int cellSize = 10*multiplier;
 
 auto window = sf::RenderWindow(sf::VideoMode({windowWidth, windowHeight}), "Waveform Playground");
