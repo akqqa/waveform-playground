@@ -1,4 +1,5 @@
 #include "Grid.hpp"
+#include <cmath>
 
 Grid::Grid(int windowWidth, int windowHeight, int cellSize)
     : windowWidth(windowWidth), windowHeight(windowHeight), cellSize(cellSize)
@@ -40,6 +41,23 @@ void Grid::drawGrid(sf::RenderWindow& window, sf::RectangleShape& cell) {
         cell.setPosition({i*cellSize, cellData[i]*cellSize});
         cell.setFillColor(sf::Color::Black);
         window.draw(cell);
+        // Draw connection between last cell if there is a gap - cant quite get spikes right. tried not drawing reversals but didnt work in cases where reversals were wanted
+        if (i !=0 && cellData[i-1] != -1 && std::abs(cellData[i-1] - cellData[i]) > 1) {
+            
+            if (cellData[i-1] < cellData[i]) { // cells are going down
+                for (int j = cellData[i-1] + 1; j < cellData[i]; j++) {
+                    cell.setPosition({i*cellSize, j*cellSize});
+                    cell.setFillColor(sf::Color::Black);
+                    window.draw(cell);
+                }
+            } else {
+                for (int j = cellData[i-1] - 1; j > cellData[i]; j--) {
+                    cell.setPosition({i*cellSize, j*cellSize});
+                    cell.setFillColor(sf::Color::Black);
+                    window.draw(cell);
+                }
+            }
+        }
     }
 
 }
