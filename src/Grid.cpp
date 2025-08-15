@@ -87,3 +87,7 @@ void Grid::setCell(int col, int row) {
 
     cellData[col] = row;
 }
+
+std::vector<int> Grid::getCellData() {
+    return cellData;
+}

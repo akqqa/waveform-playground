@@ -2,6 +2,7 @@
 #include <vector>
 
 SoundHandler::SoundHandler()
+    : m_samples(1024, 0)
 {
     initialize(1, 44100, { sf::SoundChannel::Mono });
     m_currentSample = 0;

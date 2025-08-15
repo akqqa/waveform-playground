@@ -9,6 +9,8 @@ class Grid {
         void drawGrid(sf::RenderWindow& window, sf::RectangleShape& cell);
 
         void setCell(int col, int row);
+
+        std::vector<int> getCellData();
         
 
     private:
