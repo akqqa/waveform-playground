@@ -1,8 +1,11 @@
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include "Grid.hpp"
 #include "MouseHandler.hpp"
+#include "SoundHandler.hpp"
 #include <cmath>
 #include <iostream>
+#include <thread>
 
 // Plan for interaction - split into grid of 512 samples. can draw, but only have one valid entry per x-axis position. allows redrawing easily
 // Visually add so if two samples arent adjacent, it visually adds a vertical line between
